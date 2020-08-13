@@ -260,8 +260,6 @@
             margin-top: 5px;
             border: 1px dashed #afafaf;
             color: white;
-            width: 95px;
-            height: 45px;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -270,6 +268,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            padding: 3px;
 
             #{$c}__ago {
               padding: 8px;
