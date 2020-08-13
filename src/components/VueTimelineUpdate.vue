@@ -24,7 +24,6 @@
 
 <script>
   // NPM
-  import { format } from "timeago.js"
   // PROJECT: MIXINS
   import ThemeMixin from "../mixins/ThemeMixin.js"
 
@@ -47,10 +46,6 @@
       color: {
         type: String,
         default: "#30ca91",
-        required:true
-      },
-      date: {
-        type: Date,
         required: true
       },
       dateString: {
@@ -65,7 +60,7 @@
 
     computed: {
       ago() {
-        return this.dateString || format(this.date)
+        return this.dateString
       },
       getBackgroundColor() {
         return {
