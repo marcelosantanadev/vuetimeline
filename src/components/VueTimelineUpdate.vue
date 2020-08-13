@@ -37,48 +37,6 @@ article(
       }
     ]`
   )
-    .gb-vue-timeline-update__information
-      .gb-vue-timeline-update__meta
-        base-badge(
-          v-if="category"
-          :color="color"
-          :filled="true"
-          :theme="computedTheme"
-          class="gb-vue-timeline-update__category"
-          size="small"
-        ) {{ category }}
-
-        span.gb-vue-timeline-update__ago {{ ago }}
-
-      h2(
-        v-html="title"
-        @click="onTitleClick"
-        :class=`[
-          "gb-vue-timeline-update__title",
-          {
-            "gb-vue-timeline-update__title--clickable": $listeners["click:title"]
-          }
-        ]`
-      )
-
-    img(
-      v-if="thumbnail"
-      @click="onThumbnailClick"
-      :class=`[
-        "gb-vue-timeline-update__thumbnail",
-        {
-          "gb-vue-timeline-update__thumbnail--clickable": $listeners["click:thumbnail"]
-        }
-      ]`
-      :src="thumbnail"
-    )
-
-    p(
-      v-if="description"
-      v-html="description"
-      class="gb-vue-timeline-update__description"
-    )
-
     div(
       v-if="$slots.default"
       class="gb-vue-timeline-update__slot"
