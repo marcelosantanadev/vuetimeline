@@ -151,7 +151,7 @@
 
       #{$c}__line {
         display: inline-block;
-        margin-top: 32px;
+        margin-top: 50px;
         width: 1px;
         height: 100%;
       }
