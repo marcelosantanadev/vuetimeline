@@ -224,6 +224,7 @@
         background: white;
         padding: 20px;
         border-radius: 3px;
+        color: #424242;
       }
 
       &--clickable {
