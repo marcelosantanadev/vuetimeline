@@ -273,6 +273,8 @@
             #{$c}__ago {
               padding: 8px;
               border-radius: 15px;
+              min-width: 35px;
+              min-height: 35px;
             }
           }
 
