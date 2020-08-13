@@ -44,13 +44,10 @@
         type: Number,
         default: 1500
       },
-      category: {
-        type: String,
-        default: null
-      },
       color: {
         type: String,
-        default: "#30ca91"
+        default: "#30ca91",
+        required:true
       },
       date: {
         type: Date,
@@ -59,14 +56,6 @@
       dateString: {
         type: String,
         default: null
-      },
-      description: {
-        type: String,
-        default: null
-      },
-      icon: {
-        type: String,
-        required: true
       },
       isLast: {
         type: Boolean,
