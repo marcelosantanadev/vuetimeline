@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var vuedarkmode=require('@growthbunker/vuedarkmode'),timeago_js=require('timeago.js');/**************************************************************************
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});var timeago_js=require('timeago.js');/**************************************************************************
  * MIXINS > THEME
  * @docs https://vuejs.org/v2/guide/mixins.html
  ***************************************************************************/
@@ -26,11 +26,6 @@ var ThemeMixin = {
 };//
 
 var script = {
-  components: {
-    BaseBadge: vuedarkmode.BaseBadge,
-    BaseNumber: vuedarkmode.BaseNumber
-  },
-
   mixins: [ThemeMixin],
 
   props: {
@@ -52,12 +47,7 @@ var script = {
     },
     color: {
       type: String,
-      default: "blue",
-      validator: function validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
-          x
-        )
-      }
+      default: "#30ca91"
     },
     date: {
       type: Date,
@@ -78,20 +68,22 @@ var script = {
     isLast: {
       type: Boolean,
       default: false
-    },
-    thumbnail: {
-      type: String,
-      default: null
-    },
-    title: {
-      type: String,
-      required: true
     }
   },
 
   computed: {
     ago: function ago() {
       return this.dateString || timeago_js.format(this.date)
+    },
+    getBackgroundColor: function getBackgroundColor() {
+      return {
+        background: this.color
+      }
+    },
+    getColor: function getColor() {
+      return {
+        color: this.color
+      }
     }
   },
 
@@ -111,14 +103,6 @@ var script = {
 
     onContentClick: function onContentClick(event) {
       this.$emit("click", event);
-    },
-
-    onThumbnailClick: function onThumbnailClick(event) {
-      this.$emit("click:thumbnail", event);
-    },
-
-    onTitleClick: function onTitleClick(event) {
-      this.$emit("click:title", event);
     }
   }
 };function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -238,31 +222,19 @@ function renderStyles(styles) {
 var __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{class:[
-    "gb-vue-timeline-update",
-    "gb-vue-timeline-update--" + _vm.computedTheme,
-    "js-vue-timeline-update",
-    {
-      "gb-vue-timeline-update--is-last": _vm.isLast
-    }
-  ]},[_vm._ssrNode("<div class=\"gb-vue-timeline-update__left\"><span class=\"gb-vue-timeline-update__ago\">"+_vm._ssrEscape(_vm._s(_vm.ago))+"</span></div>"),_vm._ssrNode("<div class=\"gb-vue-timeline-update__center\">","</div>",[_c('base-number',{staticClass:"gb-vue-timeline-update__bullet",attrs:{"color":_vm.color,"icon":_vm.icon,"theme":_vm.computedTheme,"icon-size":"16px","size":"small"}}),_vm._ssrNode("<span class=\"gb-vue-timeline-update__line\"></span>")],2),_vm._ssrNode("<div"+(_vm._ssrClass(null,[
-      "gb-vue-timeline-update__right",
-      {
-        "gb-vue-timeline-update__right--clickable": _vm.$listeners.click
-      }
-    ]))+">","</div>",[(_vm.$slots.default)?_vm._ssrNode("<div class=\"gb-vue-timeline-update__slot\">","</div>",[_vm._t("default")],2):_vm._e()])],2)};
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{class:["gb-vue-timeline-update", "gb-vue-timeline-update--" + _vm.computedTheme, "js-vue-timeline-update", { "gb-vue-timeline-update--is-last": _vm.isLast }]},[_vm._ssrNode("<div class=\"gb-vue-timeline-update__left\">","</div>",[(_vm.$slots.left)?_vm._ssrNode("<div class=\"gb-vue-timeline-update__ago\">","</div>",[_vm._t("left")],2):_vm._e()]),_vm._ssrNode("<div class=\"gb-vue-timeline-update__center\"><span class=\"gb-vue-timeline-update__bullet\"><span"+(_vm._ssrClass(null,["gb-vue-timeline-update__ago"]))+(_vm._ssrStyle(null,_vm.getBackgroundColor, null))+">"+_vm._ssrEscape(_vm._s(_vm.ago))+"</span></span><span class=\"gb-vue-timeline-update__line\"></span></div>"),_vm._ssrNode("<div"+(_vm._ssrClass(null,["gb-vue-timeline-update__right",{ "gb-vue-timeline-update__right--clickable": _vm.$listeners.click }]))+">","</div>",[(_vm.$slots.default)?_vm._ssrNode("<div class=\"gb-vue-timeline-update__slot\">","</div>",[_vm._t("default")],2):_vm._e()])],2)};
 var __vue_staticRenderFns__ = [];
 
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-82117f84_0", { source: "@charset \"UTF-8\";.gb-vue-timeline-update{display:flex;overflow:hidden;text-align:left;font-family:Heebo,\"Helvetica Neue\",Source Sans Pro,Helvetica,Arial,sans-serif}.gb-vue-timeline-update a{text-decoration:underline}.gb-vue-timeline-update .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{font-size:14px;user-select:none}.gb-vue-timeline-update .gb-vue-timeline-update__left{display:none}.gb-vue-timeline-update .gb-vue-timeline-update__center{position:relative;flex:0 0 auto;margin-right:30px;margin-left:16px}.gb-vue-timeline-update .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{position:absolute;top:0;left:50%;transform:translateX(-50%)}.gb-vue-timeline-update .gb-vue-timeline-update__center .gb-vue-timeline-update__line{display:inline-block;margin-top:32px;width:1px;height:100%}.gb-vue-timeline-update .gb-vue-timeline-update__right{flex:1;padding-bottom:40px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__title{font-size:16px;line-height:26px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information{display:flex;flex-direction:column;margin-top:4px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta{display:flex;align-items:center;margin-bottom:10px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{align-self:flex-start;flex:0 0 auto;margin-right:10px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__ago{line-height:24px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title{flex:1;margin:0 0 4px;text-transform:uppercase;font-weight:700}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title--clickable{cursor:pointer}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description{margin:0}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{box-sizing:border-box;margin:6px 0 12px;max-width:100%;border-width:1px;border-style:solid;border-radius:6px;transition:all 250ms linear;user-select:none}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail--clickable{cursor:pointer}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__slot{margin-top:20px}.gb-vue-timeline-update .gb-vue-timeline-update__right--clickable{cursor:pointer}.gb-vue-timeline-update--is-last .gb-vue-timeline-update__right{padding-bottom:20px}.gb-vue-timeline-update--dark{color:#fff}.gb-vue-timeline-update--dark a{color:#fff}.gb-vue-timeline-update--dark .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{color:#a9c7df}.gb-vue-timeline-update--dark .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{box-shadow:0 1px 5px 0 #18191a}.gb-vue-timeline-update--dark .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background-color:#313d4f}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{box-shadow:0 1px 5px 0 #18191a}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{border-color:#fff;box-shadow:0 1px 5px 0 #18191a}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__description{color:#a9c7df}.gb-vue-timeline-update--dark.gb-vue-timeline-update--is-last .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background:linear-gradient(#313d4f 50%,rgba(49,61,79,0))}.gb-vue-timeline-update--light{color:#2c405a}.gb-vue-timeline-update--light a{color:#2c405a}.gb-vue-timeline-update--light .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{color:#556c8d}.gb-vue-timeline-update--light .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{box-shadow:0 1px 5px 0 #eaf6ff}.gb-vue-timeline-update--light .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background-color:#c5d9e8}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{box-shadow:0 1px 5px 0 #eaf6ff}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{border-color:#3f536e;box-shadow:0 1px 5px 0 #eaf6ff}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__description{color:#556c8d}.gb-vue-timeline-update--light.gb-vue-timeline-update--is-last .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background:linear-gradient(#c5d9e8 50%,rgba(197,217,232,0))}@media (min-width:48em){.gb-vue-timeline-update .gb-vue-timeline-update__left{display:block;flex:0 0 auto;width:120px;text-align:right}.gb-vue-timeline-update .gb-vue-timeline-update__left .gb-vue-timeline-update__ago{display:inline-block;line-height:32px}.gb-vue-timeline-update .gb-vue-timeline-update__center{margin-right:40px;margin-left:40px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__title{font-size:18px;line-height:28px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information{flex-direction:row}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__ago{display:none}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title{margin-bottom:8px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{margin:8px 0 16px}}", map: undefined, media: undefined });
+    inject("data-v-7ff1c777_0", { source: "@charset \"UTF-8\";.gb-vue-timeline-update{display:flex;overflow:hidden;text-align:left;font-family:Heebo,\"Helvetica Neue\",Source Sans Pro,Helvetica,Arial,sans-serif}.gb-vue-timeline-update a{text-decoration:underline}.gb-vue-timeline-update .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{font-size:14px;user-select:none}.gb-vue-timeline-update .gb-vue-timeline-update__left{display:none}.gb-vue-timeline-update .gb-vue-timeline-update__center{position:relative;flex:0 0 auto;margin-right:65px;margin-left:55px}.gb-vue-timeline-update .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{position:absolute;top:0;left:50%;transform:translateX(-50%)}.gb-vue-timeline-update .gb-vue-timeline-update__center .gb-vue-timeline-update__line{display:inline-block;margin-top:32px;width:1px;height:100%}.gb-vue-timeline-update .gb-vue-timeline-update__right{flex:1;padding-bottom:40px;width:100%}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__title{font-size:16px;line-height:26px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information{display:flex;flex-direction:column;margin-top:4px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta{display:flex;align-items:center;margin-bottom:10px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{align-self:flex-start;flex:0 0 auto;margin-right:10px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__ago{line-height:24px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title{flex:1;margin:0 0 4px;text-transform:uppercase;font-weight:700}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title--clickable{cursor:pointer}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description{margin:0}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{box-sizing:border-box;margin:6px 0 12px;max-width:100%;border-width:1px;border-style:solid;border-radius:6px;transition:all 250ms linear;user-select:none}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail--clickable{cursor:pointer}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__slot{background:#fff;padding:20px;border-radius:3px}.gb-vue-timeline-update .gb-vue-timeline-update__right--clickable{cursor:pointer}.gb-vue-timeline-update--is-last .gb-vue-timeline-update__right{padding-bottom:20px}.gb-vue-timeline-update--dark{color:#fff}.gb-vue-timeline-update--dark a{color:#fff}.gb-vue-timeline-update--dark .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{color:#a9c7df}.gb-vue-timeline-update--dark .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{border-radius:30px;margin-top:5px;border:1px dashed #afafaf;color:#fff;width:95px;height:45px;font-size:14px;display:flex;align-items:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.gb-vue-timeline-update--dark .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet .gb-vue-timeline-update__ago{padding:8px;border-radius:15px}.gb-vue-timeline-update--dark .gb-vue-timeline-update__center .gb-vue-timeline-update__line{border-right:1px dashed #afafaf}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{box-shadow:0 1px 5px 0 #18191a}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{border-color:#fff;box-shadow:0 1px 5px 0 #18191a}.gb-vue-timeline-update--dark .gb-vue-timeline-update__right .gb-vue-timeline-update__description{color:#a9c7df}.gb-vue-timeline-update--dark.gb-vue-timeline-update--is-last .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background:linear-gradient(#313d4f 50%,rgba(49,61,79,0))}.gb-vue-timeline-update--light{color:#2c405a}.gb-vue-timeline-update--light a{color:#2c405a}.gb-vue-timeline-update--light .gb-vue-timeline-update__left .gb-vue-timeline-update__ago,.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__ago{color:#556c8d}.gb-vue-timeline-update--light .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet{border-radius:30px;margin-top:5px;border:1px dashed #afafaf;color:#fff;width:95px;height:45px;font-size:14px;display:flex;align-items:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.gb-vue-timeline-update--light .gb-vue-timeline-update__center .gb-vue-timeline-update__bullet .gb-vue-timeline-update__ago{padding:8px;border-radius:15px}.gb-vue-timeline-update--light .gb-vue-timeline-update__center .gb-vue-timeline-update__line{border-right:1px dashed #afafaf}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__category{box-shadow:0 1px 5px 0 #eaf6ff}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{border-color:#3f536e;box-shadow:0 1px 5px 0 #eaf6ff}.gb-vue-timeline-update--light .gb-vue-timeline-update__right .gb-vue-timeline-update__description{color:#556c8d}.gb-vue-timeline-update--light.gb-vue-timeline-update--is-last .gb-vue-timeline-update__center .gb-vue-timeline-update__line{background:linear-gradient(#c5d9e8 50%,rgba(197,217,232,0))}@media (min-width:48em){.gb-vue-timeline-update .gb-vue-timeline-update__left{display:block;flex:0 0 auto;width:50px;text-align:right}.gb-vue-timeline-update .gb-vue-timeline-update__left .gb-vue-timeline-update__ago{display:inline-block;line-height:32px}.gb-vue-timeline-update .gb-vue-timeline-update__center{margin-right:65px;margin-left:65px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__description,.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__title{font-size:18px;line-height:28px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information{flex-direction:row}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__meta .gb-vue-timeline-update__ago{display:none}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__information .gb-vue-timeline-update__title{margin-bottom:8px}.gb-vue-timeline-update .gb-vue-timeline-update__right .gb-vue-timeline-update__thumbnail{margin:8px 0 16px}}", map: undefined, media: undefined });
 
   };
   /* scoped */
   var __vue_scope_id__ = undefined;
   /* module identifier */
-  var __vue_module_identifier__ = "data-v-82117f84";
+  var __vue_module_identifier__ = "data-v-7ff1c777";
   /* functional template */
   var __vue_is_functional_template__ = false;
   /* style inject shadow dom */
