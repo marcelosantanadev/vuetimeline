@@ -43,9 +43,14 @@
         type: Number,
         default: 1500
       },
-      color: {
+      backgroundColor: {
         type: String,
         default: "#30ca91",
+        required: true
+      },
+      fontColor: {
+        type: String,
+        default: "#000000",
         required: true
       },
       dateString: {
@@ -64,14 +69,10 @@
       },
       getBackgroundColor() {
         return {
-          background: this.color
+          background: this.backgroundColor,
+          color: this.fontColor
         }
       },
-      getColor() {
-        return {
-          color: this.color
-        }
-      }
     },
 
     mounted() {
