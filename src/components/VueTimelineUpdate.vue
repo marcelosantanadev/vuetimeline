@@ -216,16 +216,6 @@
         }
       }
 
-      #{$c}__slot {
-        background: white;
-        padding: 20px;
-        border-radius: 3px;
-        color: #424242;
-        -webkit-box-shadow: 9px 9px 10px -8px rgba(0,0,0,0.43);
-        -moz-box-shadow: 9px 9px 10px -8px rgba(0,0,0,0.43);
-        box-shadow: 9px 9px 10px -8px rgba(0,0,0,0.43);
-      }
-
       &--clickable {
         cursor: pointer;
       }
