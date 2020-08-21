@@ -309,10 +309,7 @@
         &#{$c}--is-last {
           #{$c}__center {
             #{$c}__line {
-              background: linear-gradient(
-                  mdg($theme, "borders", "default", "primary") 50%,
-                  rgba(mdg($theme, "borders", "default", "primary"), 0)
-              );
+              border: none !important;
             }
           }
         }
