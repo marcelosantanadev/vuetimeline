@@ -10,7 +10,8 @@
 
     .gb-vue-timeline-update__center
       span.gb-vue-timeline-update__bullet
-        span(:class=`["gb-vue-timeline-update__ago"]` :style="getBackgroundColor") {{ ago }}
+        span(:class=`["gb-vue-timeline-update__ago d-flex align-items-center justify-content-center"]` :style="getBackgroundColor") {{ ago }}
+          slot(name="updateago")
       span.gb-vue-timeline-update__line
 
     div(@click="onContentClick" :class=`["gb-vue-timeline-update__right",{ "gb-vue-timeline-update__right--clickable": $listeners.click }]`)
